@@ -2,6 +2,13 @@
 
 A feature-rich Todo Management Application built with Spring MVC that allows users to create, manage, and organize their tasks with an intuitive user interface.
 
+## Theory Spring MVC 
+
+### Process request in MVC  
+- Run Thread of the MVC all revolve around `DispascherServlet` 
+<img width="784" alt="image" src="https://github.com/user-attachments/assets/b1528468-547e-4756-b759-72ed298c76df" />
+
+
 ## Features
 
 - User authentication with Spring Security
@@ -31,7 +38,7 @@ To run this application, you need:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/todo-manager.git
+git clone git@github.com:QuangThanhG13/todo-manager.git
 cd todo-manager
 ```
 
@@ -54,8 +61,6 @@ mvn tomcat7:run
 The application will start on port 8080 by default. Access it at [http://localhost:8080](http://localhost:8080)
 
 #### Deploy to Tomcat
-<img width="357" alt="image" src="https://github.com/user-attachments/assets/a3147de7-5790-4bb4-9e53-5b7ddf732925" />
-
 
 Copy the generated WAR file from the `target` directory to Tomcat's `webapps` directory.
 
@@ -119,15 +124,6 @@ src/
 5. Edit or delete existing todos using the respective action buttons
 6. Toggle completion status using the switch control
 
-## Contributing
-
-Contributions are welcome! Here's how you can contribute:
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## Future Enhancements
 
