@@ -54,6 +54,8 @@ mvn tomcat7:run
 The application will start on port 8080 by default. Access it at [http://localhost:8080](http://localhost:8080)
 
 #### Deploy to Tomcat
+<img width="357" alt="image" src="https://github.com/user-attachments/assets/a3147de7-5790-4bb4-9e53-5b7ddf732925" />
+
 
 Copy the generated WAR file from the `target` directory to Tomcat's `webapps` directory.
 
