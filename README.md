@@ -52,6 +52,10 @@ This creates a WAR file in the `target` directory.
 
 ### Run the Application
 
+#### Using tool intellij 
+<img width="1049" alt="image" src="https://github.com/user-attachments/assets/a46bf890-97bc-4e2d-bf76-026f6758f13b" />
+
+
 #### Using Maven
 
 ```bash
