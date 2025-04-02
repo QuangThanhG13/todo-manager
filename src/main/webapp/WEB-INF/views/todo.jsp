@@ -1,33 +1,37 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<html>
+<!DOCTYPE html>
+<html data-theme="light">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Todo</title>
     <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link href="webjars/bootstrap-datepicker/1.0.1/css/datepicker.css" rel="stylesheet">
+    <link href="<c:url value="/resources/static/css/theme.css" />" rel="stylesheet">
     <style>
         body {
-            background-color: #7e57ff;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding-top: 50px;
         }
 
         .container {
             max-width: 550px;
-            background-color: #f8f9fa;
+            background-color: var(--container-bg);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px var(--shadow-color);
             margin: 0 auto;
         }
 
         .page-header {
             margin-top: 0;
-            color: #5a44b6;
+            color: var(--header-color);
             font-weight: 600;
-            border-bottom: 2px solid #dee2e6;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 15px;
             margin-bottom: 25px;
         }
@@ -38,38 +42,41 @@
 
         .form-control {
             height: 45px;
-            border: 1px solid #ced4da;
+            border: 1px solid var(--input-border);
             border-radius: 5px;
             font-size: 16px;
+            background-color: var(--container-bg);
+            color: var(--text-color);
         }
 
         .form-control:focus {
-            border-color: #7e57ff;
-            box-shadow: 0 0 0 0.2rem rgba(126, 87, 255, 0.25);
+            border-color: var(--btn-bg);
+            box-shadow: 0 0 0 0.2rem var(--input-focus-shadow);
         }
 
         label {
             font-weight: 600;
-            color: #495057;
+            color: var(--label-color);
             margin-bottom: 8px;
         }
 
         .btn-success {
-            background-color: #5a44b6;
-            border-color: #5a44b6;
+            background-color: var(--btn-bg);
+            border-color: var(--btn-bg);
             font-weight: 600;
             padding: 10px 25px;
             font-size: 16px;
             border-radius: 5px;
+            color: white;
         }
 
         .btn-success:hover {
-            background-color: #4b3999;
-            border-color: #4b3999;
+            background-color: var(--btn-hover-bg);
+            border-color: var(--btn-hover-bg);
         }
 
         .text-warning {
-            color: #dc3545;
+            color: var(--error-color);
             font-size: 14px;
             margin-top: 5px;
             display: block;
@@ -77,13 +84,13 @@
 
         .footer {
             text-align: center;
-            color: white;
+            color: var(--footer-color);
             margin-top: 40px;
             font-size: 14px;
         }
 
         .optional-field {
-            color: #6c757d;
+            color: var(--optional-color);
             font-size: 13px;
             font-weight: normal;
             margin-left: 5px;
@@ -93,6 +100,7 @@
 <body>
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
+<%@ include file="common/theme-toggle.jspf"%>
 
     <div class="container">
         <h2 class="page-header">
@@ -124,12 +132,10 @@
         </form:form>
     </div>
 
-
-    <%@ include file="common/footer.jspf"%>
-
     <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
     <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="webjars/bootstrap-datepicker/1.0.1/js/bootstrap-datepicker.js"></script>
+    <script src="<c:url value="/resources/static/js/theme.js" />"></script>
 
     <script>
         $(document).ready(function() {

@@ -1,38 +1,41 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="light">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/static/css/theme.css" />" rel="stylesheet">
     <title>Welcome</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--bg-gradient);
             margin: 0;
             min-height: 100vh;
         }
 
         .navbar {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: var(--navbar-bg);
+            border-bottom: 2px solid var(--border-color);
+            box-shadow: 0 2px 10px var(--shadow-color);
         }
 
         .navbar-brand {
             font-weight: bold;
-            color: #667eea !important;
+            color: var(--brand-color) !important;
         }
 
         .navbar-nav > li > a {
             font-weight: 600;
             transition: all 0.3s ease;
+            color: var(--nav-link-color);
         }
 
         .navbar-nav > li.active > a {
-            background-color: #667eea !important;
-            color: white !important;
+            background-color: var(--active-nav-bg) !important;
+            color: var(--active-nav-color) !important;
         }
 
         .content-container {
@@ -44,10 +47,10 @@
         }
 
         .welcome-container {
-            background: white;
+            background: var(--container-bg);
             padding: 50px;
             border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 35px var(--shadow-color);
             width: 650px;
             text-align: center;
             position: relative;
@@ -60,7 +63,7 @@
             left: -10px;
             right: -10px;
             bottom: -10px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: var(--container-decoration);
             z-index: -1;
             opacity: 0.3;
             border-radius: 20px;
@@ -70,17 +73,17 @@
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 20px;
-            color: #333;
+            color: var(--header-color);
         }
 
         .welcome-message {
             font-size: 18px;
-            color: #555;
+            color: var(--text-color);
             margin-bottom: 30px;
         }
 
         .btn-primary {
-            background: linear-gradient(to right, #667eea, #764ba2);
+            background: var(--btn-gradient);
             border: none;
             padding: 12px 30px;
             font-size: 16px;
@@ -90,13 +93,13 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-            background: linear-gradient(to right, #764ba2, #667eea);
+            box-shadow: 0 7px 14px var(--btn-shadow);
+            background: var(--btn-hover-gradient);
         }
 
         .footer {
             text-align: center;
-            color: white;
+            color: var(--footer-color);
             margin-top: 40px;
             font-size: 14px;
             padding: 20px;
@@ -106,6 +109,7 @@
 <body>
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
+<%@ include file="common/theme-toggle.jspf"%>
 
     <div class="content-container">
         <div class="welcome-container">
@@ -124,7 +128,8 @@
         </div>
     </div>
 
-    <!-- Footer Fragment -->
-<%@ include file="common/footer.jspf"%>
+    <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+    <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="<c:url value="/resources/static/js/theme.js" />"></script>
 </body>
 </html>

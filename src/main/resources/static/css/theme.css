@@ -1,0 +1,211 @@
+/* Theme variables and styles */
+:root {
+    /* Light theme variables */
+    --bg-gradient-start: #f8f9fa;
+    --bg-gradient-end: #e9ecef;
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --container-decoration: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    --btn-gradient: linear-gradient(to right, #667eea, #764ba2);
+    --btn-hover-gradient: linear-gradient(to right, #764ba2, #667eea);
+    --btn-shadow: rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    --bg-color: #f8f9fa;
+    --container-bg: #ffffff;
+    --text-color: #333333;
+    --header-color: #333333;
+    --label-color: #495057;
+    --border-color: #dee2e6;
+    --btn-color: #ffffff;
+    --btn-bg: #7e57ff;
+    --btn-hover-bg: #6a3dd3;
+    --input-border: #ced4da;
+    --input-focus-shadow: rgba(126, 87, 255, 0.25);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --table-header-bg: #e9ecef;
+    --table-row-hover: #f8f9fa;
+    --pagination-active-bg: #7e57ff;
+    --pagination-active-border: #7e57ff;
+    --footer-color: #ffffff;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --optional-color: #6c757d;
+    --navbar-bg: rgba(255, 255, 255, 0.9);
+    --brand-color: #667eea;
+    --nav-link-color: #333333;
+    --active-nav-bg: #667eea;
+    --active-nav-color: white;
+    
+    /* Login page specific light theme variables */
+    --input-focus-border: #667eea;
+    --error-bg: #ffebeb;
+    --link-color: #667eea;
+    --link-hover-color: #764ba2;
+    --card-accent-color: rgba(0, 0, 0, 0.1);
+    --navbar-border: rgba(0, 0, 0, 0.1);
+    --navbar-active-bg: #667eea;
+    --navbar-active-text: white;
+    
+    /* Todo form specific light theme variables */
+    --bg-color: #7e57ff;
+    --header-color: #5a44b6;
+    --label-color: #495057;
+    --btn-bg: #5a44b6;
+    --btn-hover-bg: #4b3999;
+    --optional-color: #6c757d;
+}
+
+[data-theme="dark"] {
+    /* Dark theme variables */
+    --bg-gradient-start: #1c1f2e;
+    --bg-gradient-end: #0c0d16;
+    --bg-gradient: linear-gradient(135deg, #1f1f3d 0%, #2c2a54 100%);
+    --container-decoration: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    --btn-gradient: linear-gradient(to right, #667eea, #764ba2);
+    --btn-hover-gradient: linear-gradient(to right, #764ba2, #667eea);
+    --btn-shadow: rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.1);
+    --bg-color: #121212;
+    --container-bg: #1e1e2d;
+    --text-color: #e0e0e0;
+    --header-color: #8677d9;
+    --label-color: #bdc1c6;
+    --border-color: #2c2c3d;
+    --btn-color: #ffffff;
+    --btn-bg: #6e5bc7;
+    --btn-hover-bg: #5a4aa6;
+    --input-border: #3a3a4c;
+    --input-focus-shadow: rgba(126, 87, 255, 0.4);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --table-header-bg: #2a2a40;
+    --table-row-hover: #2c2c3d;
+    --pagination-active-bg: #6e5bc7;
+    --pagination-active-border: #6e5bc7;
+    --footer-color: #bdc1c6;
+    --success-color: #48bb78;
+    --error-color: #f56565;
+    --warning-color: #ed8936;
+    --info-color: #4299e1;
+    --optional-color: #a0aec0;
+    --navbar-bg: rgba(30, 30, 45, 0.9);
+    --brand-color: #8677d9;
+    --nav-link-color: #e0e0e0;
+    --active-nav-bg: #6e5bc7;
+    --active-nav-color: white;
+    
+    /* Login page specific dark theme variables */
+    --input-focus-border: #8989ff;
+    --error-bg: #4e2c2c;
+    --link-color: #8989ff;
+    --link-hover-color: #a485fd;
+    --card-accent-color: rgba(255, 255, 255, 0.1);
+    --navbar-border: rgba(255, 255, 255, 0.05);
+    --navbar-active-bg: #5959ff;
+    --navbar-active-text: #f0f0f0;
+    
+    /* Todo form specific dark theme variables */
+    --bg-color: #1f1f3d;
+    --header-color: #8677d9;
+    --label-color: #b0b0b0;
+    --btn-bg: #6e5bc7;
+    --btn-hover-bg: #5b49a6;
+    --optional-color: #a0a0a0;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--container-bg);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--btn-bg);
+}
+
+.sun-icon, .moon-icon {
+    transition: opacity 0.3s, transform 0.5s;
+}
+
+[data-theme="light"] .sun-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+[data-theme="light"] .moon-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+    display: none;
+}
+
+[data-theme="dark"] .sun-icon {
+    opacity: 0;
+    transform: rotate(-90deg);
+    display: none;
+}
+
+[data-theme="dark"] .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+/* Override Bootstrap Datepicker for dark mode */
+[data-theme="dark"] .datepicker {
+    background-color: #1e1e2d !important;
+    color: #e0e0e0 !important;
+    border-color: #2c2c3d !important;
+}
+
+[data-theme="dark"] .datepicker table tr td, 
+[data-theme="dark"] .datepicker table tr th {
+    color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .datepicker table tr td.day:hover {
+    background-color: #2c2c3d !important;
+}
+
+[data-theme="dark"] .datepicker table tr td.active,
+[data-theme="dark"] .datepicker table tr td.active:hover {
+    background-color: var(--btn-bg) !important;
+}
+
+/* Global transition for theme change */
+body {
+    transition: all 0.3s ease;
+}
+
+.container, .form-container, table, .theme-toggle {
+    transition: all 0.3s ease;
+}
+
+/* Navbar Common Styles */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+/* Form controls */
+.form-control {
+    transition: all 0.3s ease;
+}
+
+/* Global transitions */
+body, input, select, textarea, button, .navbar, .table, .pagination *, .btn {
+    transition: all 0.3s ease;
+} 

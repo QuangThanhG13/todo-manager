@@ -1,7 +1,8 @@
 package com.qthanh.model;
 
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.Objects;
 
 public class Todo {
     private int id;
@@ -9,19 +10,31 @@ public class Todo {
 
     @Size(min = 10, message = "Enter atleast 10 Characters.")
     private String desc;
-    private Date targetDate;
+    private LocalDate targetDate;
     private boolean isDone;
 
     public Todo() {
         super();
     }
 
-    public Todo(int id, String user, String desc, Date targetDate, boolean isDone) {
+    public Todo(int id, String user, String desc, LocalDate targetDate, boolean isDone) {
         super();
         this.id = id;
         this.user = user;
         this.desc = desc;
         this.targetDate = targetDate;
+        this.isDone = isDone;
+    }
+
+    // For backward compatibility with existing code that uses java.util.Date
+    public Todo(int id, String user, String desc, java.util.Date targetDate, boolean isDone) {
+        super();
+        this.id = id;
+        this.user = user;
+        this.desc = desc;
+        this.targetDate = targetDate != null ? 
+            LocalDate.ofInstant(targetDate.toInstant(), java.time.ZoneId.systemDefault()) : 
+            null;
         this.isDone = isDone;
     }
 
@@ -49,11 +62,11 @@ public class Todo {
         this.desc = desc;
     }
 
-    public Date getTargetDate() {
+    public LocalDate getTargetDate() {
         return targetDate;
     }
 
-    public void setTargetDate(Date targetDate) {
+    public void setTargetDate(LocalDate targetDate) {
         this.targetDate = targetDate;
     }
 
@@ -67,24 +80,15 @@ public class Todo {
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + id;
-        return result;
+        return Objects.hash(id);
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
         Todo other = (Todo) obj;
-        if (id != other.id)
-            return false;
-        return true;
+        return id == other.id;
     }
 
     @Override
@@ -93,5 +97,4 @@ public class Todo {
                 "Todo [id=%s, user=%s, desc=%s, targetDate=%s, isDone=%s]", id,
                 user, desc, targetDate, isDone);
     }
-
 }

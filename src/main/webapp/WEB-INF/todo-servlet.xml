@@ -41,5 +41,6 @@
     </mvc:interceptors>
 
     <mvc:resources mapping="/webjars/**" location="/webjars/"/>
+    <mvc:resources mapping="/resources/**" location="classpath:/"/>
 
 </beans>
